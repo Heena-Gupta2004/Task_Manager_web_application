@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <main class="todo-container" role="application" aria-label="To-do list">
+        <header class="todo-header">
+            <div>
+                <p class="eyebrow"><span id="today-label">Today</span> · <span id="today-date">--</span></p>
+                <h1>Momentum List</h1>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <span id="total-count">0</span>
+                    <span>Total</span>
+                </div>
+                <div class="stat">
+                    <span id="left-count">0</span>
+                    <span>Left</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="progress">
+            <div class="progress-track">
+                <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+            </div>
+            <span id="progress-text">0% done</span>
+        </div>
+
+        <section class="input-panel" aria-label="Add a task">
+            <label class="sr-only" for="task-input">Task name</label>
+            <input type="text" id="task-input" class="task-input" placeholder="Add a task you can finish today" />
+            <button id="add-task-btn" class="add-task-btn" type="button">Add</button>
+        </section>
+
+        <section class="input-meta" aria-label="Task details">
+            <div class="field">
+                <label for="task-due">Due</label>
+                <input type="date" id="task-due" class="meta-input" />
+            </div>
+            <div class="field">
+                <label for="task-priority">Priority</label>
+                <select id="task-priority" class="meta-input">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="task-list-select">List</label>
+                <select id="task-list-select" class="meta-input">
+                    <option value="general" selected>General</option>
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="list-tabs" aria-label="Lists">
+            <button class="list-btn is-active" data-list="all" type="button">All Lists</button>
+            <button class="list-btn" data-list="general" type="button">General</button>
+            <button class="list-btn" data-list="work" type="button">Work</button>
+            <button class="list-btn" data-list="personal" type="button">Personal</button>
+            <button class="list-btn" data-list="study" type="button">Study</button>
+        </section>
+
+        <section class="toolbar" aria-label="Filters">
+            <div class="filters" role="tablist">
+                <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-btn" data-filter="active" role="tab" aria-selected="false">Active</button>
+                <button class="filter-btn" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+            </div>
+            <button id="clear-completed-btn" class="ghost-btn" type="button">Clear completed</button>
+        </section>
+
+        <section class="tool-row" aria-label="Search and sort">
+            <label class="sr-only" for="search-input">Search tasks</label>
+            <input id="search-input" class="search-input" placeholder="Search tasks" type="search" />
+            <label class="sr-only" for="sort-select">Sort tasks</label>
+            <select id="sort-select" class="sort-select">
+                <option value="newest" selected>Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="due">Due date</option>
+                <option value="priority">Priority</option>
+            </select>
+        </section>
+
+        <p id="empty-state" class="empty-state" aria-live="polite">No tasks yet. Add your first win.</p>
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
